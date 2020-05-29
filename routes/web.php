@@ -94,7 +94,9 @@ Route::get('/logout', function () {
 
 /*---------------- start seller routes ----------------*/
 
-	
+	Route::get('seller','ProductsController@view_product_of_seller');
+
+	Route::get('seller/comments/{product_id}','CommentsController@seller_product_comments');
 		
 /*---------------- end seller routes ----------------*/
 

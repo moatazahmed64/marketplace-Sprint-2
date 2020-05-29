@@ -23,8 +23,20 @@
 	<!-- -------------------------------------------------------- -->	
 
 		<!-- start carousel -->
-
-			@include('seller_view/carousel')
+			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="margin-bottom: 30px">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{{ asset('images/trolley.jpg')}}" class="d-block w-100" alt="...">
+				</div>
+			</div>
+			<div style=" position: absolute;
+					     width: 100%;
+					     height: 100%;
+					     top: 0;
+					     left:0;
+					     background-color:rgba(0,0,0,.3);
+					     z-index: 2;"></div>
+		</div>
 
 		<!-- end carousel -->
 

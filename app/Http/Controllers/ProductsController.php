@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
@@ -59,8 +60,10 @@ class ProductsController extends Controller
         $Product->delete(); 
         return back()->with('success','Product Removed');
     }
-
-
-
+ 
+    public function view_product_of_seller(){
+        $products = Product::where('id_seller',Auth::id())->get();
+        return view('seller_view.products.products')->with('products',$products);
+    }
 
 }

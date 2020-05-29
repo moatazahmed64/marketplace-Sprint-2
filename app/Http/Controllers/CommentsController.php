@@ -48,6 +48,11 @@ class CommentsController extends Controller
 
     }
 
+    public function seller_product_comments($product_id){
+      $comments = Comment::where('id_product',$product_id)->get();
+      return view('seller_view.comments.comments_of_product')->with('comments',$comments);
+    }
+
     public function calculate_diff_date($date){
 
         date_default_timezone_set('Africa/Cairo');
