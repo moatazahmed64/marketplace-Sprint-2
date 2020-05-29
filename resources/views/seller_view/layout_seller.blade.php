@@ -25,9 +25,9 @@
 		<!-- start carousel -->
 			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="margin-bottom: 30px">
 			<div class="carousel-inner">
-				<div class="carousel-item active">
+				<?php /*<div class="carousel-item active">
 					<img src="{{ asset('images/trolley.jpg')}}" class="d-block w-100" alt="...">
-				</div>
+				</div>*/?>
 			</div>
 			<div style=" position: absolute;
 					     width: 100%;

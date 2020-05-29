@@ -65,5 +65,51 @@ class ProductsController extends Controller
         $products = Product::where('id_seller',Auth::id())->get();
         return view('seller_view.products.products')->with('products',$products);
     }
+    public function seller_products_edit($id){
+        $products = Product::find($id);
+        return view('seller_view.products.edit')->with('products',$products);
+    }
+
+    public function seller_products_confirm_edit(Request $request, $id){
+
+        $this->validate($request,[
+                'name'=>'required|min:3|max:20',
+                'description'=>'required|min:3|max:50',
+                'price'=>'required|min:2|max:50',
+                'img'=>'image|max:1999'
+            ]);
+
+            //handel file upload 
+            if($request->hasFile('img')){
+
+                //get filename with the extention
+                $filenameWithExt = $request->file('img')->getClientOriginalName();
+
+                //get just filename
+                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+
+                //get just extention
+                $extention=$request->file('img')->getClientOriginalExtension();
+
+                //file name to store
+                $fileNameToStore=$filename.'_'.time().'.'.$extention;
+
+                //upload the image
+                $path=$request->file('img')->storeAs('public/uploads',$fileNameToStore);
+
+            }
+
+            //update
+            $Product = Product::find($id);
+            $Product->name         = $request -> input('name');
+            $Product->description  = $request -> input('description');
+            $Product->price  = $request -> input('price');
+            if($request->hasFile('img')){
+                $Product->img =$fileNameToStore;
+            }
+            $Product->save();
+
+            return back()->with('success','product updated');
+    }
 
 }
