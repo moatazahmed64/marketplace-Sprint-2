@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Seller</title>
+	<title>homePage</title>
 	<link rel="icon" href="{{ asset('images/icon2.png') }}">
 	<link rel="stylesheet" href="{{ asset('css/all.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -13,30 +13,29 @@
 	<!-- -------------------------------------------------------- -->
 	<!-- -------------------------------------------------------- -->
 
-		<!-- start navbar -->
+		<!-- Start NavBar -->
 
 			@include('seller_view/navbar')
 
-		<!-- end navbar -->	
+		<!-- End NavBar -->
 
 	<!-- -------------------------------------------------------- -->
 	<!-- -------------------------------------------------------- -->	
 
 		<!-- start carousel -->
-			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" style="margin-bottom: 30px">
-			<div class="carousel-inner">
-				<?php /*<div class="carousel-item active">
-					<img src="{{ asset('images/trolley.jpg')}}" class="d-block w-100" alt="...">
-				</div>*/?>
+
+			<div style="height: 680px;
+						background-color: royalblue;
+						position: relative;">
+				<img src="{{ asset('images/online_shopping.svg') }}" style="height: 500px;
+						    position: absolute;
+						    top: 16%;
+						    left: 10%;">
+			    <img src="{{ asset('images/shopping_app.svg') }}" 	 style="height: 500px;
+						    position: absolute;
+						    top: 14%;
+						    right:5%;">
 			</div>
-			<div style=" position: absolute;
-					     width: 100%;
-					     height: 100%;
-					     top: 0;
-					     left:0;
-					     background-color:rgba(0,0,0,.3);
-					     z-index: 2;"></div>
-		</div>
 
 		<!-- end carousel -->
 
@@ -45,15 +44,15 @@
 
 		<!-- start views -->
 
-			<div class="main main-raised">
+			<div class="main-raised">
 				@include('messages')
 				@yield('content')
-			</div>
-			
+			</div>	
+
 		<!-- end views -->
 
 	<!-- -------------------------------------------------------- -->
-	<!-- -------------------------------------------------------- -->
+	<!-- -------------------------------------------------------- -->	
 
 		<!-- start footer -->
 
@@ -69,6 +68,7 @@
 
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/my_script_chat.js') }}"></script>
 	<script src="{{ asset('js/my_script.js') }}"></script>
 </body>
 </html>

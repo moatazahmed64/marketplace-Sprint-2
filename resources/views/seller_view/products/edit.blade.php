@@ -56,7 +56,7 @@
 
 				    <div class="form-group col">
 				      <label for="inputDesc">Price</label>
-				      <input type="text" class="form-control" name="price" id="inputprice"  value="{{ $products->Price }}" required="required">
+				      <input type="text" class="form-control" name="price" id="inputprice"  value="{{ $products->price }}" required="required">
 				    </div>
 
 				  </div>

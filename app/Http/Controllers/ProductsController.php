@@ -75,7 +75,7 @@ class ProductsController extends Controller
         $this->validate($request,[
                 'name'=>'required|min:3|max:20',
                 'description'=>'required|min:3|max:50',
-                'price'=>'required|min:2|max:50',
+                'price'=>'required|integer',
                 'img'=>'image|max:1999'
             ]);
 
@@ -111,5 +111,48 @@ class ProductsController extends Controller
 
             return back()->with('success','product updated');
     }
+
+    public function seller_products_add(){
+        $categories = Category::all();
+        return view('seller_view.products.add')->with('categories',$categories);
+    }
+
+     public function add_product_form(Request $request){
+        $this->validate($request,[
+            'name'=>'required|min:3|max:20',
+            'description'=>'required|min:3|max:50',
+            'price'=>'required|integer',
+            'img'=>'image|nullable|max:1999'
+        ]);
+
+         
+
+                //get filename with the extention
+                $filenameWithExt = $request->file('img')->getClientOriginalName();
+
+                //get just filename
+                $filename=pathinfo($filenameWithExt,PATHINFO_FILENAME);
+
+                //get just extention
+                $extention=$request->file('img')->getClientOriginalExtension();
+
+                //file name to store
+                $fileNameToStore=$filename.'_'.time().'.'.$extention;
+
+                //upload the image
+                $path=$request->file('img')->storeAs('public/uploads',$fileNameToStore);
+
+        $Product = new Product;
+        $Product->name              = $request -> input('name');
+        $Product->description       = $request -> input('description');
+        $Product->price             = $request -> input('price');
+        $Product->id_category       = $request -> input('category');
+        $Product->id_seller         = Auth::id();
+        $Product->img               = $fileNameToStore;
+        $Product->save();
+
+        return back()->with('success','Add Requested');
+    }
+
 
 }

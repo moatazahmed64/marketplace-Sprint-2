@@ -19,7 +19,7 @@
 	    	<a class="nav-link" href="/seller">Own Product</a>
 	  	</li>
       <li class="nav-item ">
-        <a class="nav-link" href="#">Add Product</a>
+        <a class="nav-link" href="/seller/products/add">Add Product</a>
       </li>
       @endauth
     </ul>
