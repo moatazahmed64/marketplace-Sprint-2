@@ -106,6 +106,10 @@ Route::get('/logout', function () {
 	
 	Route::post('seller/add','ProductsController@add_product_form');
 
+	Route::get('seller/product/details/{id}','ProductsController@seller_product_details');
+
+	Route::get('seller/products/destroy/{id}', 'ProductsController@seller_product_destroy');
+
 /*---------------- end seller routes ----------------*/
 
 Auth::routes();

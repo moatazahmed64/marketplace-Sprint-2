@@ -153,6 +153,16 @@ class ProductsController extends Controller
 
         return back()->with('success','Add Requested');
     }
+    public function seller_product_details($id){
+        $product = Product::find($id);
+        return view('seller_view.products.show')->with('product',$product);
+    }
+    public function seller_product_destroy($id)
+    {
+        $Product = Product::find($id);
+        $Product->delete(); 
+        return back()->with('success','Product Removed');
+    }
 
 
 }
