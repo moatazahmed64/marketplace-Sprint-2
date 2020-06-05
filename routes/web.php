@@ -109,6 +109,12 @@ Route::get('/logout', function () {
 	Route::get('seller/product/details/{id}','ProductsController@seller_product_details');
 
 	Route::get('seller/products/destroy/{id}', 'ProductsController@seller_product_destroy');
+	
+	Route::get('seller/profile/{id}','UsersController@seller_profile')->name('profile');
+	
+	Route::get('seller/profile/edit/{id}','UsersController@seller_edit_profile');
+
+	Route::put('seller/profile/confirm/{id}', 'UsersController@seller_profile_confirm_edit');
 
 /*---------------- end seller routes ----------------*/
 

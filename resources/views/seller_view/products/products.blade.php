@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
 		@foreach($products as $product)
-			<div class="col">
+			<div class="col-lg-3 col-md-4 col-sm-6">
 				<div class="card" style="width: 18rem;">
 				  <a href="/seller/product/details/{{$product->id}}" class="">
 				    <img class="card-img-top" src="/storage/uploads/{{$product->img}}" alt="Card image cap">
